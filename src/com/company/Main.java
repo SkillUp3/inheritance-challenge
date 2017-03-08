@@ -3,7 +3,6 @@ package com.company;
 public class Main {
 
     public static void main(String[] args) {
-
         // Challenge.
         // Start with a base class of a Vehicle, then create a Car class that inherits from this base class.
         // Finally, create another class, a specific type of Car that inherits from the Car class.
@@ -11,14 +10,14 @@ public class Main {
         // You will want to decide where to put the appropriate state and behaviours (fields and methods).
         // As mentioned above, changing gears, increasing/decreasing speed should be included.
         // For you specific type of vehicle you will want to add something specific for that type of car.
-        SportCar ferrari = new SportCar("v8", "f1",2,
-                0,0,2,true,7,4,true,
-                false,false);
 
-        ferrari.steer(45);
-        ferrari.accelerate(30);
-        ferrari.accelerate(120);
-        ferrari.accelerate(-140);
+
+        MuscleCar mustang = new MuscleCar("mustang", 0, 0, 100, 0,
+                0, true, 6);
+        mustang.steer(45);
+        mustang.accelerate(40);
+        mustang.steer(-30);
+        mustang.accelerate(-30);
 
     }
 }

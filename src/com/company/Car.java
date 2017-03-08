@@ -1,76 +1,41 @@
 package com.company;
 
 /**
- * Created by idejesus on 07/03/2017.
+ * Created by ian on 08/03/2017.
+ */
+
+/**
+ * Car is a subclass of Vehicle and inherits all variables and methods of vehicle
  */
 public class Car extends Vehicle {
-
-    private int mDoors;
     private boolean mIsManual;
-    private int mGears;
-    private int mWheels;
+    private  int mGears;
 
-    public Car(String motor, String name, int numberOfPeopleAccomodate, int currentVelocity, int currentDirection, int doors, boolean isManual, int gears, int wheels) {
-        super(motor, name, numberOfPeopleAccomodate, currentVelocity, currentDirection);
-        mDoors = doors;
+
+    public Car(String engine, String name, int speed, int direction, int wheel, int weight, int velocity, boolean isManual, int gears) {
+        super(engine, name, speed, direction, 4, weight, velocity);
         mIsManual = isManual;
         mGears = gears;
-        mWheels = wheels;
     }
 
-    public int getDoors() {
-        return mDoors;
+
+    public void drive(){
+
     }
 
-    public void setDoors(int doors) {
-        mDoors = doors;
-    }
-
-    public boolean isManual() {
-        return mIsManual;
-    }
-
-    public void setManual(boolean manual) {
-        mIsManual = manual;
-    }
-
-    public int getGears() {
-        return mGears;
-    }
-
-    public void setGears(int gears) {
-        mGears = gears;
-    }
-
-    public int getWheels() {
-        return mWheels;
-    }
-
-    public void setWheels(int wheels) {
-        mWheels = wheels;
-    }
-    public void changeGear(int gear){
+    public  void changeGear(int gear){
         mGears = gear;
-        System.out.println("Gear change to " + mGears );
+        System.out.println("Car.setCurrentGear(): Changed to " + mGears + " gear.");
+
     }
 
-    public void accelerate(int rate){
-        int newVelocity = getCurrentVelocity() + rate;
-         if(newVelocity == 0){
-             stop();
-             changeGear(1);
-         }else if(newVelocity > 0 && newVelocity <= 10){
-             changeGear(1);
-         }else if(newVelocity > 10 && newVelocity <= 20){
-             changeGear(2);
-         }else if(newVelocity > 20 && newVelocity <= 30){
-             changeGear(3);
-         }else {
-             changeGear(4);
-         }
-
-         if(newVelocity >0){
-             changeVelocity(newVelocity, getCurrentDirection());
-         }
+    /**
+     * Calls move method of vehicle to set the speed and direction
+     * @param speed
+     * @param direction
+     */
+    public  void changeVelocity( int speed, int direction){
+        move(speed,direction);
+        System.out.println("Car.changeVelocity() : Velocity " + speed + " direction " + direction);
     }
 }

@@ -1,90 +1,76 @@
 package com.company;
 
 /**
- * Created by idejesus on 07/03/2017.
+ * Created by ian on 08/03/2017.
  */
 public class Vehicle {
+    // car, truck  motorycyle,  jeepney
+    // engine, name, speed, direction, wheel, weight,
+    //transport, steer, changevelocity(speed and direction)
 
-    private String mMotor;
+    private String mEngine;
     private String mName;
-    private int mNumberOfPeopleAccomodate;
-    private int mCurrentVelocity;
-    private int mCurrentDirection;
+    private int mSpeed;
+    private int mDirection;
+    private int mWheel;
+    private int mWeight;
+    private int mVelocity;
 
-    public Vehicle(String motor, String name, int numberOfPeopleAccomodate, int currentVelocity, int currentDirection) {
-        mMotor = motor;
+
+
+    public Vehicle(String engine, String name, int speed, int direction, int wheel, int weight, int velocity) {
+        mEngine = engine;
         mName = name;
-        mNumberOfPeopleAccomodate = numberOfPeopleAccomodate;
-        mCurrentVelocity = currentVelocity;
-        mCurrentDirection = currentDirection;
+        mSpeed = speed;
+        mDirection = direction;
+        mWheel = wheel;
+        mWeight = weight;
+        mVelocity = velocity;
     }
 
-    public void travel() {
-
-    }
-
-    public void stop() {
-
-    }
-
-    public void refuel() {
+    public void transport(){
 
     }
 
-    public void pollute() {
+    /**
+     * Change the direction of the vehicle
+     * @param direction
+     */
+    public void steer(int direction){
+        mDirection += direction;
+        System.out.println("Vehicle.steer(): Steering at " + mDirection + " degrees.");
 
     }
 
-    public String getMotor() {
-        return mMotor;
-    }
+    /**
+     * Sets the velocity and direction of the vehicle
+     * @param velocity
+     * @param direction
+     */
+    public void move(int velocity, int direction){
+        mVelocity = velocity;
+        mDirection = direction;
 
-    public void setMotor(String motor) {
-        mMotor = motor;
-    }
-
-    public String getName() {
-        return mName;
-    }
-
-    public void setName(String name) {
-        mName = name;
-    }
-
-    public int getNumberOfPeopleAccomodate() {
-        return mNumberOfPeopleAccomodate;
-    }
-
-    public void setNumberOfPeopleAccomodate(int numberOfPeopleAccomodate) {
-        mNumberOfPeopleAccomodate = numberOfPeopleAccomodate;
-    }
-
-    public void changeVelocity(int velocity, int direction){
-        mCurrentDirection = direction;
-        mCurrentVelocity = velocity;
-        System.out.println("Vehicle moving at" + mCurrentVelocity + " in irection" + mCurrentDirection);
-
+        System.out.println("Vehicle.move(): Moving at  " + mVelocity + " in direction " + mDirection);
 
     }
 
-    public void  steer(int direction){
-        mCurrentDirection += direction;
-        System.out.println("Vehicle.steer()  Steering at " + mCurrentDirection);
+    public int getDirection() {
+        return mDirection;
     }
 
-    public int getCurrentVelocity() {
-        return mCurrentVelocity;
+    public void setDirection(int direction) {
+        mDirection = direction;
     }
 
-    public void setCurrentVelocity(int currentVelocity) {
-        mCurrentVelocity = currentVelocity;
+    public int getVelocity() {
+        return mVelocity;
     }
 
-    public int getCurrentDirection() {
-        return mCurrentDirection;
+    public void setVelocity(int velocity) {
+        mVelocity = velocity;
     }
-
-    public void setCurrentDirection(int currentDirection) {
-        mCurrentDirection = currentDirection;
+    public void stop(){
+        mVelocity = 0;
     }
 }
